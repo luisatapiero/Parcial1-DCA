@@ -3,11 +3,11 @@ package controller;
 import model.Logic;
 import processing.core.PApplet;
 
-public class controllerMain {
+public class ControllerMain {
 	
 	private Logic logic;
 
-	public controllerMain(PApplet app) {
+	public ControllerMain(PApplet app) {
 		logic = new Logic(app);
 	}
 
