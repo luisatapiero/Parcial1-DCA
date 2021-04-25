@@ -49,8 +49,7 @@ public class Logic {
 			array1 = txt1[i].split(" ");
 			int id = Integer.parseInt(array1[0]);
 			String name = array1[1];
-			// System.out.println(id);
-			// System.out.println(name);
+
 
 			for (int j = 0; j < txt2.length; j++) {
 				array2 = txt2[j].split(" ");
@@ -58,9 +57,6 @@ public class Logic {
 
 					String breed = array2[1];
 					String birthDate = array2[2];
-					// System.out.println(breed);
-					// System.out.println(birthDate);
-					// Date birthDate1;
 
 					SimpleDateFormat birthDate1 = new SimpleDateFormat("dd-mm-yyyy");
 					Date date;
@@ -68,7 +64,7 @@ public class Logic {
 						date = birthDate1.parse(birthDate);
 						long ms = System.currentTimeMillis() - date.getTime();
 						long age = (long) ((long) ms / (1000.0 * 60 * 60 * 24 * 365));
-						// System.out.println(birthDate + age);
+
 
 						combineInfo(id, name, breed, birthDate, age);
 					} catch (ParseException e) {
@@ -89,7 +85,7 @@ public class Logic {
 		System.out.println(listDog.get(0).getAge());
 	}
 	
-	public void sortList(char button) {
+	public void sortList(int button) {
 		switch (button) {
 		case 1:
 			Collections.sort(listDog);
@@ -109,6 +105,9 @@ public class Logic {
 			break;
 		}
 	}
+
+	
+	
 
 	public void drawInfo() {
 		app.textSize(14);
