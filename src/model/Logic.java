@@ -23,6 +23,7 @@ public class Logic {
 		this.app = app;
 		listDog = new LinkedList<Dog>();
 		loadTxt();
+
 		// combineInfo();
 
 	}
@@ -50,7 +51,7 @@ public class Logic {
 
 					String breed = array2[1];
 					String birthDate = array2[2];
-					//System.out.println(breed);
+					// System.out.println(breed);
 					// System.out.println(birthDate);
 					// Date birthDate1;
 
@@ -60,18 +61,18 @@ public class Logic {
 						date = birthDate1.parse(birthDate);
 						long ms = System.currentTimeMillis() - date.getTime();
 						long age = (long) ((long) ms / (1000.0 * 60 * 60 * 24 * 365));
-						//System.out.println(birthDate + age);
+						// System.out.println(birthDate + age);
+
 						combineInfo(id, name, breed, birthDate, age);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 				}
-				
-				
+
 			}
-				
+
 		}
 
 	}
@@ -79,6 +80,19 @@ public class Logic {
 	private void combineInfo(int id, String name, String breed, String birthDate, long age) {
 		listDog.add(new Dog(id, name, breed, birthDate, age, app));
 		System.out.println(listDog.get(0).getAge());
+	}
+
+	public void drawInfo() {
+		app.textSize(14);
+		app.fill(11, 57, 84);
+		for (int i = 0; i < 5; i++) {
+			int age = (int) listDog.get(i).getAge();
+			app.text(listDog.get(i).getId(), 250, 100+(i*80));
+			app.text(listDog.get(i).getName(), 400 , 100+(i*80));
+			app.text(listDog.get(i).getBreed(),  550 , 100+(i*80));
+			app.text(listDog.get(i).getBirthDate(), 730 ,100+(i*80));
+			app.text(age, 880, 100+(i*80));
+		}
 	}
 
 }

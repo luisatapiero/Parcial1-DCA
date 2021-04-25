@@ -10,5 +10,9 @@ public class ControllerMain {
 	public ControllerMain(PApplet app) {
 		logic = new Logic(app);
 	}
+	
+	public void drawInfo() {
+		logic.drawInfo();
+	}
 
 }
