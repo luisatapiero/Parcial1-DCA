@@ -72,6 +72,11 @@ public class Dog implements Comparable<Dog>{
 		this.age = age;
 	}
 
+	public String toLowerCase() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 	

@@ -27,19 +27,18 @@ public class Main extends PApplet{
 
 	public void setup() {
 		cp5 = new ControlP5(this);
-		PFont font = createFont("arial",20);
 		
 		controllerMain = new ControllerMain(this);
 		
 		cp5.addBang("id")
-	     .setPosition(150,500)
+	     .setPosition(250,500)
 	     .setSize(100,40)
 	     .setLabel("Ordenar por Id")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
 	     ;
 		
 		cp5.addBang("name")
-	     .setPosition(350,500)
+	     .setPosition(400,500)
 	     .setSize(100,40)
 	     .setLabel("Ordenar por Nombre")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
@@ -53,7 +52,7 @@ public class Main extends PApplet{
 	     ;
 		
 		cp5.addBang("age")
-	     .setPosition(750,500)
+	     .setPosition(700,500)
 	     .setSize(100,40)
 	     .setLabel("Ordenar por Edad")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
