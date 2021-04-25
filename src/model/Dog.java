@@ -4,10 +4,8 @@ import java.util.Date;
 
 import processing.core.PApplet;
 
-public class Dog {
+public class Dog implements Comparable<Dog>{
 
-	private int posX;
-	private int posY;
 
 	private int id;
 	private String name;
@@ -29,7 +27,10 @@ public class Dog {
 
 	}
 
-	
+	@Override
+	public int compareTo(Dog nextDog) {
+		return this.id-nextDog.getId();
+	}
 
 	public int getId() {
 		return id;
@@ -70,5 +71,9 @@ public class Dog {
 	public void setAge(long age) {
 		this.age = age;
 	}
+
+
+
+	
 
 }

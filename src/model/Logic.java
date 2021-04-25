@@ -4,13 +4,18 @@ import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import processing.core.PApplet;
 
 public class Logic {
-	private Dog dog;
+	private DogAgeCompare dogAgeCompare;
+	private DogNameCompare dogNameCompare;
+	private DogBreedCompare dogBreedCompare;
+	
 	private PApplet app;
 	private String[] txt1;
 	private String[] txt2;
@@ -23,7 +28,9 @@ public class Logic {
 		this.app = app;
 		listDog = new LinkedList<Dog>();
 		loadTxt();
-
+		dogAgeCompare = new DogAgeCompare();
+		dogNameCompare = new DogNameCompare();
+		dogBreedCompare = new DogBreedCompare();
 		// combineInfo();
 
 	}
@@ -80,6 +87,27 @@ public class Logic {
 	private void combineInfo(int id, String name, String breed, String birthDate, long age) {
 		listDog.add(new Dog(id, name, breed, birthDate, age, app));
 		System.out.println(listDog.get(0).getAge());
+	}
+	
+	public void sortList(char button) {
+		switch (button) {
+		case 1:
+			Collections.sort(listDog);
+			break;
+		case 2:
+			Collections.sort(listDog, dogNameCompare);
+			break;
+		case 3:
+			Collections.sort(listDog, dogBreedCompare);
+			break;
+		case 4:
+			Collections.sort(listDog, dogAgeCompare);
+			break;
+
+
+		default:
+			break;
+		}
 	}
 
 	public void drawInfo() {
