@@ -35,7 +35,7 @@ public class Logic {
 		dogAgeCompare = new DogAgeCompare();
 		dogNameCompare = new DogNameCompare();
 		dogBreedCompare = new DogBreedCompare();
-		
+
 		txtId = new String[5];
 		txtName = new String[5];
 		txtAge = new String[5];
@@ -96,9 +96,9 @@ public class Logic {
 		switch (button) {
 		case 1:
 			Collections.sort(listDog);
-			
+
 			txtIdM();
-			
+
 			break;
 		case 2:
 			Collections.sort(listDog, dogNameCompare);
@@ -113,7 +113,6 @@ public class Logic {
 			txtAgeM();
 			break;
 
-
 		default:
 			break;
 		}
@@ -124,14 +123,39 @@ public class Logic {
 		app.fill(11, 57, 84);
 		for (int i = 0; i < 5; i++) {
 			int age = (int) listDog.get(i).getAge();
-			app.text(listDog.get(i).getId(), 250, 100 + (i * 80));
-			app.text(listDog.get(i).getName(), 400, 100 + (i * 80));
-			app.text(listDog.get(i).getBreed(), 550, 100 + (i * 80));
-			app.text(listDog.get(i).getBirthDate(), 730, 100 + (i * 80));
-			app.text(age, 880, 100 + (i * 80));
+			app.text(listDog.get(i).getId(), 250, 110 + (i * 80));
+			app.text(listDog.get(i).getName(), 400, 110 + (i * 80));
+			app.text(listDog.get(i).getBreed(), 550, 110 + (i * 80));
+			app.text(listDog.get(i).getBirthDate(), 730, 110 + (i * 80));
+			app.text(age, 880, 110 + (i * 80));
+
+			switch (listDog.get(i).getId()) {
+
+			case 1:
+				app.image(Dog.getRetrieverImg(), 100, (i * 80) + 100);
+				break;
+
+			case 2:
+				app.image(Dog.getGermanImg(), 100, (i * 80) + 100);
+				break;
+
+			case 3:
+				app.image(Dog.getBulldogImg(), 100, (i * 80) + 100);
+				break;
+
+			case 4:
+				app.image(Dog.getRottweilerImg(), 100, (i * 80) + 100);
+				break;
+
+			case 5:
+				app.image(Dog.getHuskyImg(), 100, (i * 80) + 100);
+				break;
+			default:
+				break;
+			}
 		}
 	}
-	
+
 	private void txtIdM() {
 		for (int i = 0; i < listDog.size(); i++) {
 			int id = listDog.get(i).getId();
@@ -139,14 +163,14 @@ public class Logic {
 			String breed = listDog.get(i).getBreed().toLowerCase();
 			String birthDate = listDog.get(i).getBirthDate();
 			int age = (int) listDog.get(i).getAge();
-		
-			String txt1 = Integer.toString(id) +" "+ name +" "+ breed +" "+ birthDate +" "+ Integer.toString(age);
-			txtId [i]= txt1;
+
+			String txt1 = Integer.toString(id) + " " + name + " " + breed + " " + birthDate + " "
+					+ Integer.toString(age);
+			txtId[i] = txt1;
 			app.saveStrings("/data/exports/OrdenadoPorId.txt", txtId);
-			System.out.println("guardo");
 		}
 	}
-	
+
 	private void txtNameM() {
 		for (int i = 0; i < listDog.size(); i++) {
 			int id = listDog.get(i).getId();
@@ -154,14 +178,14 @@ public class Logic {
 			String breed = listDog.get(i).getBreed().toLowerCase();
 			String birthDate = listDog.get(i).getBirthDate();
 			int age = (int) listDog.get(i).getAge();
-		
-			String txt1 = Integer.toString(id) +" "+ name +" "+ breed +" "+ birthDate +" "+ Integer.toString(age);
-			txtName [i]= txt1;
+
+			String txt1 = Integer.toString(id) + " " + name + " " + breed + " " + birthDate + " "
+					+ Integer.toString(age);
+			txtName[i] = txt1;
 			app.saveStrings("/data/exports/OrdenadoPorNombre.txt", txtName);
-			System.out.println("guardo");
 		}
 	}
-	
+
 	private void txtBreedM() {
 		for (int i = 0; i < listDog.size(); i++) {
 			int id = listDog.get(i).getId();
@@ -169,14 +193,14 @@ public class Logic {
 			String breed = listDog.get(i).getBreed().toLowerCase();
 			String birthDate = listDog.get(i).getBirthDate();
 			int age = (int) listDog.get(i).getAge();
-		
-			String txt1 = Integer.toString(id) +" "+ name +" "+ breed +" "+ birthDate +" "+ Integer.toString(age);
-			txtBreed [i]= txt1;
+
+			String txt1 = Integer.toString(id) + " " + name + " " + breed + " " + birthDate + " "
+					+ Integer.toString(age);
+			txtBreed[i] = txt1;
 			app.saveStrings("/data/exports/OrdenadoPorRaza.txt", txtBreed);
-			System.out.println("guardo");
 		}
 	}
-	
+
 	private void txtAgeM() {
 		for (int i = 0; i < listDog.size(); i++) {
 			int id = listDog.get(i).getId();
@@ -184,11 +208,11 @@ public class Logic {
 			String breed = listDog.get(i).getBreed().toLowerCase();
 			String birthDate = listDog.get(i).getBirthDate();
 			int age = (int) listDog.get(i).getAge();
-		
-			String txt1 = Integer.toString(id) +" "+ name +" "+ breed +" "+ birthDate +" "+ Integer.toString(age);
-			txtAge [i]= txt1;
+
+			String txt1 = Integer.toString(id) + " " + name + " " + breed + " " + birthDate + " "
+					+ Integer.toString(age);
+			txtAge[i] = txt1;
 			app.saveStrings("/data/exports/OrdenadoPorEdad.txt", txtAge);
-			System.out.println("guardo");
 		}
 	}
 
