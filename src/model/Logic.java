@@ -45,7 +45,9 @@ public class Logic {
 	}
 
 	private void loadTxt() {
-
+		
+		// carga los dos txt
+		
 		txt1 = app.loadStrings("./data/imports/TXT1.txt");
 		txt2 = app.loadStrings("./data/imports/TXT2.txt");
 		txtToWords();
@@ -53,7 +55,9 @@ public class Logic {
 	}
 
 	private void txtToWords() {
-
+		
+		// dividir los txt en palabras
+		
 		for (int i = 0; i < txt1.length; i++) {
 			array1 = txt1[i].split(" ");
 			int id = Integer.parseInt(array1[0]);
@@ -61,10 +65,15 @@ public class Logic {
 
 			for (int j = 0; j < txt2.length; j++) {
 				array2 = txt2[j].split(" ");
+				
+				// guardar la info en variables
+				
 				if (id == Integer.parseInt(array2[0])) {
 
 					String breed = array2[1];
 					String birthDate = array2[2];
+
+					// calcular la edad del perro de acuerdo a su fecha de nacimiento
 
 					SimpleDateFormat birthDate1 = new SimpleDateFormat("dd-mm-yyyy");
 					Date date;
@@ -88,27 +97,45 @@ public class Logic {
 	}
 
 	private void combineInfo(int id, String name, String breed, String birthDate, long age) {
+		
+		// combinar la info para añadirla en el Linkedlist
+		
 		listDog.add(new Dog(id, name, breed, birthDate, age, app));
-		System.out.println(listDog.get(0).getAge());
 	}
 
 	public void sortList(int button) {
+		
+		// ordenar la info de acuerdo con el botón que sea presionado por el usuario
+		
 		switch (button) {
 		case 1:
+			
+			//se ordena naturalmente por id
+			
 			Collections.sort(listDog);
-
 			txtIdM();
-
 			break;
+			
 		case 2:
+			
+			//se ordena parcialmente por nombre
+			
 			Collections.sort(listDog, dogNameCompare);
 			txtNameM();
 			break;
+			
 		case 3:
+			
+			//se ordena parcialmente por raza
+			
 			Collections.sort(listDog, dogBreedCompare);
 			txtBreedM();
 			break;
+			
 		case 4:
+			
+			//se ordena parcialmente por edad
+			
 			Collections.sort(listDog, dogAgeCompare);
 			txtAgeM();
 			break;
@@ -119,6 +146,9 @@ public class Logic {
 	}
 
 	public void drawInfo() {
+		
+		//pintar la info y sus respectivas imagenes
+		
 		app.textSize(14);
 		app.fill(11, 57, 84);
 		for (int i = 0; i < 5; i++) {
@@ -153,9 +183,12 @@ public class Logic {
 			default:
 				break;
 			}
+
 		}
 	}
-
+	
+	//guardar los archivos txt ordenados por cada atributo (id, nombre, raza y edad)
+	
 	private void txtIdM() {
 		for (int i = 0; i < listDog.size(); i++) {
 			int id = listDog.get(i).getId();

@@ -33,6 +33,9 @@ public class Dog implements Comparable<Dog> {
 	}
 
 	private void loadImgs() {
+		
+		//se cargan imagenes de los perros y se les ajusta el tamaño para que todas sean iguales
+		
 		app.imageMode(PApplet.CENTER);
 		bulldogImg = app.loadImage("data/images/bulldog.jpg");
 		bulldogImg.resize(50, 50);

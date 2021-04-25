@@ -30,30 +30,32 @@ public class Main extends PApplet{
 		
 		controllerMain = new ControllerMain(this);
 		
+		//se crean botones usando la libreria de controlP5
+		
 		cp5.addBang("id")
 	     .setPosition(250,500)
-	     .setSize(100,40)
+	     .setSize(110,40)
 	     .setLabel("Ordenar por Id")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
 	     ;
 		
 		cp5.addBang("name")
 	     .setPosition(400,500)
-	     .setSize(100,40)
+	     .setSize(110,40)
 	     .setLabel("Ordenar por Nombre")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
 	     ;
 		
 		cp5.addBang("breed")
 	     .setPosition(550,500)
-	     .setSize(100,40)
+	     .setSize(110,40)
 	     .setLabel("Ordenar por Raza")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
 	     ;
 		
 		cp5.addBang("age")
 	     .setPosition(700,500)
-	     .setSize(100,40)
+	     .setSize(110,40)
 	     .setLabel("Ordenar por Edad")
 	     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
 	     ;
@@ -61,6 +63,9 @@ public class Main extends PApplet{
 	
 
 	public void draw() {
+		
+		//se pinta toda la información que se le muestra al usuario
+		
 		background(191,215,234);
 		controllerMain.drawInfo();
 		textAlign(CENTER);
@@ -75,6 +80,8 @@ public class Main extends PApplet{
 		
 	}
 	
+	//se le asigna la función a cada botón de acuerdo con el switch de Logic
+
 	public void id(int button) {
 		  button = 1;
 		  controllerMain.sortList(button);
